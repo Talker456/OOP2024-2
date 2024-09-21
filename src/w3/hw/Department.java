@@ -93,7 +93,7 @@ public class Department {
 
     Student findByName(String name) {
         for (Student student : students) {
-            if (student.nameMatches(name)) {
+            if (student.matches(name)) {
                 return student;
             }
         }

@@ -26,10 +26,6 @@ public class Student {
         System.out.printf("%d %s (%d학년) %s - %d\n", id, name, grade, telephone, score);
     }
 
-    public boolean nameMatches(String keyword) {
-        return name.equals(keyword);
-    }
-
     public boolean isInRange(int min, int max) {
         return (min <= score) && (score < max);
     }
