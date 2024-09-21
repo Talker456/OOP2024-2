@@ -1,0 +1,18 @@
+Java Array
+
+reference(hashKey) <- 4B
+
+array Instance
+
+int[] array = new int[5];
+// array @ heap area
+// array hash @ stack area
+
+====================================
+String a = "class";
+
+
+** variable scope**
+local variable -> duplication X
+field identifier -> duplication O
+
