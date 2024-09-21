@@ -59,4 +59,21 @@ public class Student {
         }
         return false;
     }
+
+    public boolean matches(String[] keywords) {
+        for (String keyword : keywords) {
+            if (keyword.startsWith("-")) {
+                keyword = keyword.substring(1);
+                if (matches(keyword)) {
+                    return false;
+                }
+            }else{
+                if (!matches(keyword)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
 }

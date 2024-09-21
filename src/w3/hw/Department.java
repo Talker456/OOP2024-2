@@ -53,8 +53,8 @@ public class Department {
     }
 
     public void myMain() {
-//        readAll();
-        testData();
+        readAll();
+//        testData();
         printAll();
 
         boolean exitFlag = false;
@@ -62,7 +62,8 @@ public class Department {
             if (exitFlag) {
                 break;
             }
-            System.out.println("(1) 전체출력 (2) 이름검색 (3) 통합검색 (4) 점수검색 (5) 종료...");
+            System.out.print("(1) 전체출력 (2) 이름검색 (3) 통합검색" +
+                            " (4) 점수검색 (5) 멀티키워드검색 (6)종료...");
             int select = scanner.nextInt();
             switch (select) {
                 case 1:
@@ -78,19 +79,30 @@ public class Department {
                     searchByScore();
                     break;
                 case 5:
-                    // multi-keyword search
+                    searchByMultipleKeywords();
                     break;
                 case 6:
-                    System.out.println("EXIT");
+                    System.out.println("종료");
                     exitFlag = true;
                     break;
             }
         }
     }
 
+    void searchByMultipleKeywords() {
+        scanner.nextLine();
+        String keywords = scanner.nextLine();
+        String[] keywordArray = keywords.split(" ");
+        for (Student student : students) {
+            if (student.matches(keywordArray)) {
+                student.print();
+            }
+        }
+    }
+
     void searchByScore() {
         scanner.nextLine();
-        System.out.println("score range : ");
+        System.out.println("점수 범위 입력 : ");
         String range = scanner.nextLine();
         String[] scores = range.split(" ");
         int min = scores[0].equals("-") ? 0 : Integer.parseInt(scores[0]);
@@ -105,7 +117,7 @@ public class Department {
 
     void searchByKeyword() {
         scanner.nextLine();
-        System.out.print("Keyword : ");
+        System.out.print("검색 키워드 : ");
         String keyword = scanner.next();
         for (Student student : students) {
             if (student.matches(keyword)) {
@@ -115,13 +127,13 @@ public class Department {
     }
 
     void searchByName() {
-        System.out.print("name : ");
+        System.out.print("이름 : ");
         String name = scanner.next();
         Student student = findByName(name);
         if (student != null) {
             student.print();
         } else {
-            System.out.println("Such that name Not Found");
+            System.out.println("없는 이름");
         }
     }
 
@@ -143,6 +155,7 @@ public class Department {
             }
             Student student = new Student(Integer.parseInt(line));
             student.read(scanner);
+            students.add(student);
         }
     }
 
