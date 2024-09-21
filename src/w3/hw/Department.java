@@ -53,8 +53,8 @@ public class Department {
     }
 
     public void myMain() {
-        readAll();
-//        testData();
+//        readAll();
+        testData();
         printAll();
 
         boolean exitFlag = false;
@@ -91,6 +91,7 @@ public class Department {
 
     void searchByMultipleKeywords() {
         scanner.nextLine();
+        System.out.print("멀티 키워드 : ");
         String keywords = scanner.nextLine();
         String[] keywordArray = keywords.split(" ");
         for (Student student : students) {
