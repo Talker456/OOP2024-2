@@ -9,15 +9,6 @@ public class Student {
     private String telephone;
     private int score;
 
-    // Just For testing, deprecate before submitting
-    public Student(int id, String name, int grade, String phone, int score) {
-        this.id = id;
-        this.name = name;
-        this.grade = grade;
-        this.telephone = phone;
-        this.score = score;
-    }
-
     public Student (){}
 
     public Student(int id) {
@@ -25,7 +16,6 @@ public class Student {
     }
 
     public void read(Scanner scanner) {
-//        id = scanner.nextInt();
         name = scanner.next();
         grade = scanner.nextInt();
         telephone = scanner.next();
