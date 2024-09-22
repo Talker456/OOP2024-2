@@ -30,6 +30,10 @@ public class Student {
         return (min <= score) && (score < max);
     }
 
+    public boolean matchesName(String name) {
+        return this.name.equals(name);
+    }
+
     public boolean matches(String keyword) {
         if (name.contains(keyword)) {
             return true;

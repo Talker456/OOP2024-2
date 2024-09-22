@@ -45,6 +45,7 @@ public class Department {
 
     void searchByMultipleKeywords() {
         scanner.nextLine();
+        System.out.print("멀티키워드 : ");
         String keywords = scanner.nextLine();
         String[] keywordArray = keywords.split(" ");
         for (Student student : students) {
@@ -56,7 +57,7 @@ public class Department {
 
     void searchByScore() {
         scanner.nextLine();
-        System.out.println("점수 범위 입력 : ");
+        System.out.print("점수 범위 입력 : ");
         String range = scanner.nextLine();
         String[] scores = range.split(" ");
         int min = scores[0].equals("-") ? 0 : Integer.parseInt(scores[0]);
@@ -93,7 +94,7 @@ public class Department {
 
     Student findByName(String name) {
         for (Student student : students) {
-            if (student.matches(name)) {
+            if (student.matchesName(name)) {
                 return student;
             }
         }
