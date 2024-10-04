@@ -1,0 +1,3 @@
+static : shared
+static method -> only static fields
+

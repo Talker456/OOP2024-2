@@ -2,3 +2,6 @@ AllArgsConstructor? (replacing read())
 // private vs default
 // toString() override vs print()
 // printf() vs println concat
+
+Review :
+Field vs Compute
