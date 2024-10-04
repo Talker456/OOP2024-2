@@ -13,7 +13,7 @@ public class Eat {
 		month = scan.nextInt();
 		day = scan.nextInt();
 		eatType = scan.next();
-		//System.out.println(month+"/"+day+"/"+eatType);
+//		System.out.println(month+"/"+day+"/"+eatType);
 		int cc = scan.nextInt();
 		EatItem ei = null;
 		for (int i = 0; i < cc; i++) {

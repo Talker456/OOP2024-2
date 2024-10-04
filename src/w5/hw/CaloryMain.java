@@ -19,7 +19,7 @@ public class CaloryMain {
 	}
 
 	void readEats() {
-		Scanner inFile = openFile("eat2.txt");
+		Scanner inFile = openFile("./src/w5/hw/eat2.txt");
 		Eat e = null;
 		while (inFile.hasNext()) {
 			e = new Eat();
@@ -29,7 +29,7 @@ public class CaloryMain {
 	}
 
 	void readFoods() {
-		Scanner inFile = openFile("food2.txt");
+		Scanner inFile = openFile("./src/w5/hw/food2.txt");
 		Food m = null;
 		int n;
 		while (inFile.hasNext()) {
