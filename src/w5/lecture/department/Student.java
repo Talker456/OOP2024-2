@@ -4,14 +4,17 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Student {
+	static int count;
+	int number;
 	String name;
 	int id;
 	String phone;
 	int year;
 	ArrayList<Lecture> registeredList = new ArrayList<>();
 
-	void read(Scanner scan, int id) {
-		this.id = id;
+	void read(Scanner scan) {
+		number = ++count;
+		id = scan.nextInt();
 		name = scan.next();
 		phone = scan.next();
 		year = scan.nextInt();
@@ -37,7 +40,6 @@ public class Student {
 	}
 
 	boolean matches(String kwd) {
-		// TODO Auto-generated method stub
 		if (name.contentEquals(kwd))
 			return true;
 		return ("" + id).contentEquals(kwd);

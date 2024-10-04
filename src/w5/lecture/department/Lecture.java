@@ -9,17 +9,14 @@ public class Lecture {
 	String day;
 	String time;
 
-	public Lecture(String code) {
-		// TODO Auto-generated constructor stub
-		this.code = code;
-	}
 	void read(Scanner scan) {
+		code = scan.next();
 		name = scan.next();
-		//System.out.println(name);
 		year = scan.nextInt();
 		day = scan.next();
 		time = scan.next();
 	}
+
 	void print() {
 		System.out.printf("(%s) %s (%d학년) %s%s\n", code, name, year, day, time);
 	}

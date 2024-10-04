@@ -1,6 +1,7 @@
 package w5.lecture.department;
 
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -18,33 +19,26 @@ public class Department {
 	}
 
 	private void printLectures() {
-		// TODO Auto-generated method stub
 		for (Lecture lec: lectureList) {
 			lec.print();
 		}
 	}
 
 	void readStudents() {
+		Scanner fileIn = openFile("students.txt");
 		Student st = null;
-		int id;
-		while (true) {
-			id = scan.nextInt();
-			if (id == 0)
-				break;
+		while (fileIn.hasNext()) {
 			st = new Student();
-			st.read(scan, id);
+			st.read(fileIn);
 			studentList.add(st);
 		}
 	}
 	void readLectures() {
+		Scanner fileIn = openFile("subjects.txt");
 		Lecture lec = null;
-		String code;
-		while (true) {
-			code = scan.next();
-			if (code.equals("end"))
-				break;
-			lec = new Lecture(code);
-			lec.read(scan);
+		while (fileIn.hasNext()) {
+			lec = new Lecture();
+			lec.read(fileIn);
 			lectureList.add(lec);
 		}		
 	}
@@ -80,5 +74,16 @@ public class Department {
 				return lec;
 		}
 		return null;
+	}
+
+	Scanner openFile(String filename) {
+		Scanner filein = null;
+		try {
+			filein = new Scanner(new File(filename));
+		} catch (Exception e) {
+			System.out.printf("파일 오픈 실패: %s\n",filename);
+			throw new RuntimeException(e);
+		}
+		return filein;
 	}
 }
